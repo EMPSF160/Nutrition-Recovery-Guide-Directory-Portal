@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Guides & Recovery Resources — NOURISHMAP</title>
+  <meta name="description" content="Explore evidence-based nutrition recovery protocols, symptom checkers, and clinical articles written by board-certified dietitians and physicians.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="guides" class="has-topbar">
+
+  <!-- Top Announcement Bar -->
+  <div class="topbar">
+    <div class="container topbar-content">
+      <div>
+        <span class="topbar-badge">CLINICAL EDITORIAL</span>
+        <span>Peer-Reviewed Protocols, Diagnostic Checklists, & Recovery Roadmaps</span>
+      </div>
+      <div class="topbar-links">
+        <a href="directory.html" class="topbar-link">Explore Specialists</a>
+        <a href="user-dashboard.html" class="topbar-link">Patient Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">🌿</div>
+        <div>
+          <span class="brand-name">NOURISH<span>MAP</span></span>
+          <span class="brand-tagline">Find. Understand. Recover.</span>
+        </div>
+      </a>
+
+      <nav class="nav-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="directory.html" class="nav-link">Explore Directory</a>
+        <a href="guides.html" class="nav-link active">Recovery Guides</a>
+        <a href="submit.html" class="nav-link">List Your Practice</a>
+        
+        <!-- Dashboard Dropdown -->
+        <div class="dashboard-dropdown">
+          <a href="#" class="nav-link" style="gap:4px;">Dashboards ▾</a>
+          <div class="dropdown-menu">
+            <a href="user-dashboard.html" class="dropdown-item">👤 Patient / User Dashboard</a>
+            <a href="owner-dashboard.html" class="dropdown-item">🩺 Specialist Practice Portal</a>
+            <a href="admin-dashboard.html" class="dropdown-item">⚙️ Admin Moderation Center</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <a href="submit.html" class="btn btn-primary btn-sm">+ Submit Listing</a>
+        <button class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header Banner with Visual Background -->
+  <section style="background: linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg-main) 100%); padding: 50px 0 30px; border-bottom:1px solid var(--border-light);">
+    <div class="container text-center" style="max-width:760px; margin:0 auto;">
+      <span class="section-eyebrow">Evidence-Based Editorial Hub</span>
+      <h1 style="font-size:2.6rem; color:var(--primary-dark); margin-bottom:12px;">Clinical Nutrition & Recovery Guides</h1>
+      <p style="color:var(--text-secondary); font-size:1.05rem;">
+        Demystifying complex metabolic recovery, microbiome rebuilding, and post-operative tissue synthesis with peer-reviewed protocols written by licensed clinicians.
+      </p>
+    </div>
+  </section>
+
+  <!-- Clinical Author Spotlight Banner -->
+  <section style="background:#ffffff; border-bottom:1px solid var(--border-light); padding:24px 0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+        <div style="font-size:0.85rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em;">
+          ✍️ Clinical Authors & Medical Reviewers:
+        </div>
+        <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <img src="images/image-2.png" class="avatar-sm" alt="Dr. Elena Vance">
+            <span style="font-size:0.85rem; font-weight:600;">Dr. Elena Vance</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <img src="images/image-1.png" class="avatar-sm" alt="Marcus Reid">
+            <span style="font-size:0.85rem; font-weight:600;">Marcus Reid, MS</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <img src="images/image-4.png" class="avatar-sm" alt="Dr. Kavita Sharma">
+            <span style="font-size:0.85rem; font-weight:600;">Dr. Kavita Sharma</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <img src="images/image-3.png" class="avatar-sm" alt="Sarah Jenkins">
+            <span style="font-size:0.85rem; font-weight:600;">Sarah Jenkins, RDN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Guides Grid & Interactive Tools -->
+  <main class="container" style="padding: 50px 0 80px;">
+    
+    <!-- Topic Filter Pills -->
+    <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:40px;">
+      <button class="btn btn-sm btn-primary" onclick="showToast('Showing all recovery guides')">All Pathways</button>
+      <button class="btn btn-sm btn-outline" onclick="showToast('Filtered: Gut Health & SIBO')">Gut Health & SIBO</button>
+      <button class="btn btn-sm btn-outline" onclick="showToast('Filtered: Athletic Injury & Tissue')">Athletic Injury</button>
+      <button class="btn btn-sm btn-outline" onclick="showToast('Filtered: Autoimmune & AIP')">Autoimmune & Fatigue</button>
+      <button class="btn btn-sm btn-outline" onclick="showToast('Filtered: Eating Disorder Recovery')">ED Recovery</button>
+      <button class="btn btn-sm btn-outline" onclick="showToast('Filtered: Post-Bariatric')">Post-Bariatric</button>
+    </div>
+
+    <!-- Guides Grid -->
+    <div class="guides-grid" id="guidesGrid" style="margin-bottom:60px;">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Interactive Nutrient Deficiency Symptom Checker Tool -->
+    <div class="evaluator-card">
+      <div class="evaluator-grid">
+        <div>
+          <span class="badge badge-tag" style="margin-bottom:8px;">Interactive Tool</span>
+          <h3 style="font-size:1.8rem; color:var(--primary-dark); margin-bottom:12px;">Nutrient Deficiency & Biomarker Evaluator</h3>
+          <p style="color:var(--text-secondary); font-size:0.92rem; line-height:1.6; margin-bottom:20px;">
+            Select symptoms you are currently experiencing to reveal which key micronutrients, amino acids, or digestive enzymes may need clinical laboratory testing.
+          </p>
+
+          <div style="display:grid; gap:8px;">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="sympFatigue" onchange="updateSymptomEvaluation()">
+              <span>Persistent chronic fatigue & low morning cortisol</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="sympBloat" onchange="updateSymptomEvaluation()">
+              <span>Extreme post-meal distension / lower quadrant gas</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="sympJoints" onchange="updateSymptomEvaluation()">
+              <span>Tendon stiffness, delayed muscle soreness, or joint ache</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="sympHair" onchange="updateSymptomEvaluation()">
+              <span>Diffuse hair shedding, brittle nails, or pale nailbeds</span>
+            </label>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-subtle); padding:28px; border-radius:var(--radius-lg); border:1px solid var(--border-light);" id="symptomResultBox">
+          <h4 style="font-size:1.1rem; color:var(--primary-dark); margin-bottom:8px;">Clinical Biomarker Assessment</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:16px;" id="symptomFeedbackText">
+            Select one or more symptoms on the left to generate biomarker recommendations.
+          </p>
+          <div id="symptomTagsContainer" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;">
+            <span class="badge badge-pill">Select symptoms to calculate</span>
+          </div>
+          <a href="directory.html" class="btn btn-sm btn-primary" style="width:100%; text-align:center;">Find Clinical Dietitians for Biomarker Testing</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Downloadable Clinical Protocols Library -->
+    <div style="margin-bottom:60px;">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Downloadable Handouts</span>
+        <h2 class="section-title">Peer-Reviewed Clinical Protocols (PDF)</h2>
+        <p class="section-subtitle">Download step-by-step nutritional flowcharts designed by certified specialists.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-xs); display:flex; flex-direction:column; height:100%;">
+          <div class="handout-card-img">
+            <img src="images/image-27.png" alt="Low-FODMAP Blueprint">
+          </div>
+          <div style="padding:20px; display:flex; flex-direction:column; flex-grow:1;">
+            <span class="badge badge-tag" style="margin-bottom:6px; align-self:flex-start;">Gut Health Protocol</span>
+            <h4 style="font-size:1.05rem; margin-bottom:8px;">Low-FODMAP Re-introduction Blueprint</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">Stepwise 3-day challenge charts for lactose, fructose, sorbitol, and fructans.</p>
+            <button class="btn btn-sm btn-primary" style="width:100%; margin-top:auto;" onclick="showToast('Downloaded: Low-FODMAP Re-introduction Blueprint PDF')">📥 Download PDF Handout</button>
+          </div>
+        </div>
+
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-xs); display:flex; flex-direction:column; height:100%;">
+          <div class="handout-card-img">
+            <img src="images/image-28.png" alt="Tendon & ACL Protocol">
+          </div>
+          <div style="padding:20px; display:flex; flex-direction:column; flex-grow:1;">
+            <span class="badge badge-tag" style="margin-bottom:6px; align-self:flex-start;">Orthopedic Rehab</span>
+            <h4 style="font-size:1.05rem; margin-bottom:8px;">Tendon & ACL Collagen Dosing Protocol</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">Timing 15g gelatin + 50mg Vitamin C with physical therapy loading.</p>
+            <button class="btn btn-sm btn-primary" style="width:100%; margin-top:auto;" onclick="showToast('Downloaded: Tendon & ACL Collagen Protocol PDF')">📥 Download PDF Handout</button>
+          </div>
+        </div>
+
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-xs); display:flex; flex-direction:column; height:100%;">
+          <div class="handout-card-img">
+            <img src="images/image-29.png" alt="AIP Checklist">
+          </div>
+          <div style="padding:20px; display:flex; flex-direction:column; flex-grow:1;">
+            <span class="badge badge-tag" style="margin-bottom:6px; align-self:flex-start;">Autoimmune Care</span>
+            <h4 style="font-size:1.05rem; margin-bottom:8px;">AIP Phase 1 Elimination Checklist</h4>
+            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">Comprehensive allowable shopping list and high-nutrient anti-inflammatory staples.</p>
+            <button class="btn btn-sm btn-primary" style="width:100%; margin-top:auto;" onclick="showToast('Downloaded: AIP Phase 1 Elimination Checklist PDF')">📥 Download PDF Handout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clinical FAQs -->
+    <div style="max-width:800px; margin:0 auto;">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Common Questions</span>
+        <h2 class="section-title">Clinical Recovery FAQs</h2>
+      </div>
+
+      <div style="display:grid; gap:16px;">
+        <details style="background:#ffffff; padding:18px 24px; border-radius:var(--radius-md); border:1px solid var(--border-light); cursor:pointer;">
+          <summary style="font-weight:700; color:var(--primary-dark); font-size:1.05rem;">How does NOURISHMAP verify provider credentials?</summary>
+          <p style="margin-top:10px; font-size:0.9rem; color:var(--text-secondary); line-height:1.6;">
+            Every dietitian and physician on our directory must submit verifiable primary source credentials (CDR Registered Dietitian license, state board licensure, or board certifications like CNS, CSO, or CEDRD). Our clinical audit team checks these against public state databases every 90 days.
+          </p>
+        </details>
+
+        <details style="background:#ffffff; padding:18px 24px; border-radius:var(--radius-md); border:1px solid var(--border-light); cursor:pointer;">
+          <summary style="font-weight:700; color:var(--primary-dark); font-size:1.05rem;">Can I receive insurance reimbursement for clinical nutrition therapy?</summary>
+          <p style="margin-top:10px; font-size:0.9rem; color:var(--text-secondary); line-height:1.6;">
+            Many specialists on NOURISHMAP accept major private health insurance (Aetna, BlueCross, UnitedHealthcare) or provide standardized Superbills with ICD-10 & CPT medical nutrition codes for out-of-network claims.
+          </p>
+        </details>
+
+        <details style="background:#ffffff; padding:18px 24px; border-radius:var(--radius-md); border:1px solid var(--border-light); cursor:pointer;">
+          <summary style="font-weight:700; color:var(--primary-dark); font-size:1.05rem;">What is the difference between a health coach and a Clinical Dietitian (RD)?</summary>
+          <p style="margin-top:10px; font-size:0.9rem; color:var(--text-secondary); line-height:1.6;">
+            Registered Dietitians (RD/RDN) and Certified Nutrition Specialists (CNS) possess accredited graduate medical nutrition education, 1,000+ hours of supervised clinical residency, and are legally licensed to prescribe Medical Nutrition Therapy (MNT) for complex diseases.
+          </p>
+        </details>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Interactive Guide Reader Modal -->
+  <div class="modal-backdrop" id="guideReaderModal">
+    <div class="modal-content" style="max-width:720px;">
+      <button class="modal-close-btn" onclick="document.getElementById('guideReaderModal').classList.remove('open')">✕</button>
+      <div id="guideReaderBody">
+        <!-- Content Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">🌿</div>
+            <div>
+              <span class="brand-name">NOURISH<span style="color:var(--secondary)">MAP</span></span>
+              <span class="brand-tagline" style="color:rgba(255,255,255,0.6);">Find. Understand. Recover.</span>
+            </div>
+          </a>
+          <p>
+            NOURISHMAP is the definitive medical nutrition recovery portal and verified practitioner directory.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://facebook.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://linkedin.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" r="2"></circle></svg>
+            </a>
+            <a href="https://x.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="X / Twitter" aria-label="X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+            <a href="https://youtube.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+            </a>
+          </div>
+          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5);">
+            © 2026 NOURISHMAP Inc. All rights reserved.
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Directory</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="directory.html?category=gut-health">Gut Health & SIBO</a></li>
+            <li class="footer-link"><a href="directory.html?category=sports-injury">Athletic Injury Rehab</a></li>
+            <li class="footer-link"><a href="directory.html?category=ed-recovery">Eating Disorder Nutrition</a></li>
+            <li class="footer-link"><a href="directory.html?category=autoimmune-chronic">Autoimmune & AIP</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Portals</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="user-dashboard.html">Patient Dashboard</a></li>
+            <li class="footer-link"><a href="owner-dashboard.html">Specialist Portal</a></li>
+            <li class="footer-link"><a href="admin-dashboard.html">Admin Moderation</a></li>
+            <li class="footer-link"><a href="submit.html">Submit Practice</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="guides.html">Clinical Recovery Hub</a></li>
+            <li class="footer-link"><a href="guides.html">Nutrient Deficiency Check</a></li>
+            <li class="footer-link"><a href="submit.html">Verification Standards</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Stay Connected</h4>
+          <p style="font-size:0.85rem; margin-bottom:12px;">Get research-backed nutritional protocols every month.</p>
+          <form onsubmit="event.preventDefault(); showToast('Subscribed to NOURISHMAP!');">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary btn-sm" style="width:100%;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Medical Disclaimer: Information on NOURISHMAP does not replace individualized physician advice.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">HIPAA Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function updateSymptomEvaluation() {
+      const fatigue = document.getElementById('sympFatigue')?.checked;
+      const bloat = document.getElementById('sympBloat')?.checked;
+      const joints = document.getElementById('sympJoints')?.checked;
+      const hair = document.getElementById('sympHair')?.checked;
+
+      const feedback = document.getElementById('symptomFeedbackText');
+      const tagsBox = document.getElementById('symptomTagsContainer');
+
+      let tags = [];
+      if (fatigue) tags.push('Ferritin & Iron Saturation', 'Serum B12 / Methylmalonic Acid', 'Cortisol 4-Point Saliva');
+      if (bloat) tags.push('Lactulose SIBO Breath Panel', 'Comprehensive Stool DNA (GI-MAP)', 'Elastase-1 Enzyme');
+      if (joints) tags.push('hs-CRP (Systemic Inflammation)', 'Vitamin D3 (25-OH)', 'Amino Acid Plasma Profile');
+      if (hair) tags.push('Free T3/T4 & Thyroid Antibodies', 'Serum Zinc & Copper Ratios', 'Total Protein / Albumin');
+
+      if (tags.length === 0) {
+        feedback.textContent = 'Select one or more symptoms on the left to generate biomarker recommendations.';
+        tagsBox.innerHTML = '<span class="badge badge-pill">Select symptoms to calculate</span>';
+      } else {
+        feedback.textContent = `Identified ${tags.length} high-priority clinical biomarkers recommended for laboratory assessment:`;
+        tagsBox.innerHTML = tags.map(t => `<span class="badge badge-tag" style="background:var(--primary-soft); color:var(--primary-dark); font-size:0.8rem; padding:6px 12px;">🔬 ${t}</span>`).join('');
+      }
+    }
+  </script>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOURISHMAP — Nutrition Recovery Guide & Directory Portal | Find. Understand. Recover.</title>
+  <meta name="description" content="Discover verified clinical nutritionists, dietitians, and specialized recovery protocols for Gut Health, Post-Bariatric, Eating Disorders, Autoimmune, and Athletic Injury.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home" class="has-topbar">
+
+  <!-- Top Announcement Bar -->
+  <div class="topbar">
+    <div class="container topbar-content">
+      <div>
+        <span class="topbar-badge">2026 CLINICAL DIRECTORY</span>
+        <span>Over 2,400+ Board-Verified Nutrition Specialists & Evidence-Based Recovery Protocols</span>
+      </div>
+      <div class="topbar-links">
+        <a href="submit.html" class="topbar-link">Are you a Specialist? <strong>Join the Directory</strong></a>
+        <a href="guides.html" class="topbar-link">Clinical Guides</a>
+        <a href="user-dashboard.html" class="topbar-link">Patient Portal</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">🌿</div>
+        <div>
+          <span class="brand-name">NOURISH<span>MAP</span></span>
+          <span class="brand-tagline">Find. Understand. Recover.</span>
+        </div>
+      </a>
+
+      <nav class="nav-desktop">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="directory.html" class="nav-link">Explore Directory</a>
+        <a href="guides.html" class="nav-link">Recovery Guides</a>
+        <a href="submit.html" class="nav-link">List Your Practice</a>
+        
+        <!-- Dashboard Dropdown -->
+        <div class="dashboard-dropdown">
+          <a href="#" class="nav-link" style="gap:4px;">Dashboards ▾</a>
+          <div class="dropdown-menu">
+            <a href="user-dashboard.html" class="dropdown-item">👤 Patient / User Dashboard</a>
+            <a href="owner-dashboard.html" class="dropdown-item">🩺 Specialist Practice Portal</a>
+            <a href="admin-dashboard.html" class="dropdown-item">⚙️ Admin Moderation Center</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <a href="directory.html" class="btn btn-outline btn-sm">Browse Specialists</a>
+        <a href="submit.html" class="btn btn-primary btn-sm">+ Submit Listing</a>
+        <button class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Rich Visuals -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span>🩺 Evidence-Based Clinical Portal</span>
+          <span>•</span>
+          <span>100% Manually Verified Credentials</span>
+        </div>
+        <h1 class="hero-title">
+          Recover faster with <span class="highlight">precision nutrition</span> & trusted specialists.
+        </h1>
+        <p class="hero-description">
+          Find verified clinical dietitians, specialized recovery therapists, and evidence-backed medical nutrition protocols tailored to your exact metabolic, digestive, or post-surgical milestone.
+        </p>
+
+        <!-- Smart Search Box -->
+        <div class="hero-search-box">
+          <form class="search-form" action="directory.html" method="GET">
+            <div class="search-field">
+              <span>🔍</span>
+              <input type="text" name="q" placeholder="Specialist, condition (e.g. SIBO, ACL, AIP)...">
+            </div>
+            <div class="search-field">
+              <span>🏷️</span>
+              <select name="category">
+                <option value="all">All Specialties</option>
+                <option value="gut-health">Gut Health & SIBO</option>
+                <option value="sports-injury">Athletic Injury & Rehab</option>
+                <option value="ed-recovery">Eating Disorder Nutrition</option>
+                <option value="autoimmune-chronic">Autoimmune & Fatigue</option>
+                <option value="post-bariatric">Post-Bariatric</option>
+                <option value="oncology-rehab">Oncology Recovery</option>
+              </select>
+            </div>
+            <div class="search-field">
+              <span>📍</span>
+              <select name="loc">
+                <option value="">All Locations / Telehealth</option>
+                <option value="New York, NY">New York, NY</option>
+                <option value="Los Angeles, CA">Los Angeles, CA</option>
+                <option value="Chicago, IL">Chicago, IL</option>
+                <option value="Austin, TX">Austin, TX</option>
+                <option value="Seattle, WA">Seattle, WA</option>
+                <option value="San Francisco, CA">San Francisco, CA</option>
+                <option value="Boston, MA">Boston, MA</option>
+                <option value="Miami, FL">Miami, FL</option>
+                <option value="Denver, CO">Denver, CO</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Find Care</button>
+          </form>
+        </div>
+
+        <div class="search-tags">
+          <span class="search-tag-label">Popular Searches:</span>
+          <a href="directory.html?q=SIBO" class="tag-btn">SIBO Eradication</a>
+          <a href="directory.html?q=ACL" class="tag-btn">ACL Collagen Synthesis</a>
+          <a href="directory.html?q=AIP" class="tag-btn">AIP Autoimmune Protocol</a>
+          <a href="directory.html?q=Telehealth" class="tag-btn">Telehealth Only</a>
+          <a href="directory.html?q=Bariatric" class="tag-btn">Post-Bariatric Dietitians</a>
+        </div>
+      </div>
+
+      <!-- Hero Visual Showcase -->
+      <div class="hero-visual-card">
+        <div class="hero-image-wrapper">
+          <img src="images/image-11.png" alt="Clinical Nutrition Consultation">
+        </div>
+        <div class="hero-verified-tag">
+          <span>✓ Monash, CDR & CNS Verified</span>
+        </div>
+        
+        <!-- Floating Doctor Preview Mini Card -->
+        <div style="position:absolute; top:24px; left:24px; background:rgba(255,255,255,0.95); backdrop-filter:blur(8px); padding:8px 12px; border-radius:var(--radius-lg); display:flex; align-items:center; gap:10px; box-shadow:var(--shadow-md);">
+          <img src="images/image-2.png" class="avatar-sm" alt="Dr. Elena Vance">
+          <div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--primary-dark);">Dr. Elena Vance</div>
+            <div style="font-size:0.7rem; color:var(--text-muted);">GI Microbiome Specialist</div>
+          </div>
+        </div>
+
+        <div class="hero-floating-stat">
+          <div class="stat-item">
+            <div class="stat-num">98.4%</div>
+            <div class="stat-label">Patient Trust Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">2,400+</div>
+            <div class="stat-label">Verified Providers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">120+</div>
+            <div class="stat-label">Recovery Guides</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works: 4-Step Recovery Discovery Diagram -->
+  <section style="padding: 60px 0; background:#ffffff; border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">The Recovery Journey</span>
+        <h2 class="section-title">How NOURISHMAP Bridges Science & Patient Recovery</h2>
+        <p class="section-subtitle">A seamless 4-step workflow designed to eliminate guesswork from your nutritional rehabilitation.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:24px;">
+        
+        <div style="background:var(--bg-main); border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-light); padding:20px; text-align:center; display:flex; flex-direction:column;">
+          <div class="step-card-img">
+            <img src="images/image-14.png" alt="Search and Diagnostic Match">
+          </div>
+          <div style="width:32px; height:32px; border-radius:50%; background:var(--primary); color:#ffffff; display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-weight:700; font-size:0.85rem;">1</div>
+          <h4 style="font-size:1.05rem; margin-bottom:6px; color:var(--primary-dark);">1. Search & Filter</h4>
+          <p style="font-size:0.85rem; color:var(--text-secondary);">Filter by specific clinical condition, insurance acceptance, or in-person vs. telehealth radius.</p>
+        </div>
+
+        <div style="background:var(--bg-main); border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-light); padding:20px; text-align:center; display:flex; flex-direction:column;">
+          <div class="step-card-img">
+            <img src="images/image-15.png" alt="Compare Credentials">
+          </div>
+          <div style="width:32px; height:32px; border-radius:50%; background:var(--primary); color:#ffffff; display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-weight:700; font-size:0.85rem;">2</div>
+          <h4 style="font-size:1.05rem; margin-bottom:6px; color:var(--primary-dark);">2. Compare Protocols</h4>
+          <p style="font-size:0.85rem; color:var(--text-secondary);">Review verified state licenses, published recovery roadmaps, and authentic patient before/after reviews.</p>
+        </div>
+
+        <div style="background:var(--bg-main); border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-light); padding:20px; text-align:center; display:flex; flex-direction:column;">
+          <div class="step-card-img">
+            <img src="images/image-16.png" alt="Direct Appointment Scheduler">
+          </div>
+          <div style="width:32px; height:32px; border-radius:50%; background:var(--primary); color:#ffffff; display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-weight:700; font-size:0.85rem;">3</div>
+          <h4 style="font-size:1.05rem; margin-bottom:6px; color:var(--primary-dark);">3. Book Consultations</h4>
+          <p style="font-size:0.85rem; color:var(--text-secondary);">Connect directly with practitioners through HIPAA-compliant intake forms with zero referral surcharges.</p>
+        </div>
+
+        <div style="background:var(--bg-main); border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border-light); padding:20px; text-align:center; display:flex; flex-direction:column;">
+          <div class="step-card-img">
+            <img src="images/image-17.png" alt="Heal with Milestones">
+          </div>
+          <div style="width:32px; height:32px; border-radius:50%; background:var(--primary); color:#ffffff; display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-weight:700; font-size:0.85rem;">4</div>
+          <h4 style="font-size:1.05rem; margin-bottom:6px; color:var(--primary-dark);">4. Recover & Track</h4>
+          <p style="font-size:0.85rem; color:var(--text-secondary);">Access personalized recovery trackers, evidence-based meal guides, and lab biomarker follow-ups.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Grid Section with Visual Thumbnails -->
+  <section style="padding: 70px 0; background: var(--bg-main);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Explore Specializations</span>
+        <h2 class="section-title">Targeted Clinical Recovery Categories</h2>
+        <p class="section-subtitle">Connect with specialists trained specifically for your physiological recovery needs.</p>
+      </div>
+
+      <div class="categories-grid" id="featuredCategories">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Verified Listings Carousel/Grid -->
+  <section style="padding: 70px 0; background: #ffffff;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 36px; flex-wrap:wrap; gap:16px;">
+        <div>
+          <span class="section-eyebrow">Top Rated Providers</span>
+          <h2 class="section-title" style="margin-bottom:0;">Featured Clinical Specialists</h2>
+          <p style="color:var(--text-secondary); font-size:0.95rem; margin-top:4px;">Audited for 2026 board certification and clinical efficacy.</p>
+        </div>
+        <a href="directory.html" class="btn btn-outline btn-sm">View All 2,400+ Listings →</a>
+      </div>
+
+      <div class="listings-grid" id="featuredListingsGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Recovery Readiness Quiz Section -->
+  <section class="container">
+    <div class="interactive-quiz-section">
+      <div class="quiz-grid">
+        <div>
+          <span class="quiz-badge">⚡ Interactive Clinical Matcher</span>
+          <h2 class="quiz-title">Find your personalized recovery protocol & specialist in 60 seconds.</h2>
+          <p class="quiz-desc">
+            Answer two quick diagnostic questions to receive targeted dietary guidance and match with board-certified practitioners who specialize in your condition.
+          </p>
+          <div style="margin-top:24px; display:flex; gap:16px; font-size:0.85rem; color:rgba(255,255,255,0.8);">
+            <span>✓ 100% Free & Anonymous</span>
+            <span>✓ Peer-Reviewed Algorithms</span>
+          </div>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-step-indicator">
+            <span id="quizStepText">Step 1 of 2</span>
+            <span>NOURISHMAP Engine</span>
+          </div>
+          <h3 id="quizTitle" style="color:#ffffff; font-size:1.15rem; margin-bottom:16px;">What is your primary recovery or nutritional challenge?</h3>
+          <div class="quiz-options" id="quizOptions">
+            <!-- Injected via JS -->
+          </div>
+          <div class="quiz-result-box" id="quizResultBox">
+            <!-- Results Injected -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patient Recovery Transformation Case Studies -->
+  <section style="padding: 70px 0; background: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">Real Transformations</span>
+        <h2 class="section-title">Verified Patient Recovery Stories</h2>
+        <p class="section-subtitle">Real people whose lives were changed by targeted medical nutrition therapy.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:24px;">
+        
+        <div style="background:#ffffff; border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:24px; display:flex; flex-direction:column; height:100%;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <img src="images/q (4).png" class="avatar-lg" alt="Rachel C.">
+            <div>
+              <div style="font-weight:700; font-size:0.95rem;">Rachel C. (New York)</div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">Treated for Refractory SIBO</div>
+            </div>
+            <span class="badge badge-verified" style="margin-left:auto; font-size:0.65rem;">Verified Patient</span>
+          </div>
+          <div style="color:#d97736; margin-bottom:8px;">★★★★★</div>
+          <h4 style="font-size:1rem; margin-bottom:8px;">"I went from 8 foods to dining out with friends again."</h4>
+          <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6; margin-bottom:16px;">
+            "After 3 failed rounds of antibiotics, Dr. Elena Vance put me on a structured low-fermentation motility roadmap. In 10 weeks, my methane levels were 0 ppm."
+          </p>
+          <div style="margin-top:auto; font-size:0.8rem; color:var(--primary); font-weight:600;">
+            Specialist: Dr. Elena Vance, MS, RD
+          </div>
+        </div>
+
+        <div style="background:#ffffff; border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:24px; display:flex; flex-direction:column; height:100%;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <img src="images/q (5).png" class="avatar-lg" alt="Liam H.">
+            <div>
+              <div style="font-weight:700; font-size:0.95rem;">Liam H. (Los Angeles)</div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">Treated for ACL Tear & Bone Graft</div>
+            </div>
+            <span class="badge badge-verified" style="margin-left:auto; font-size:0.65rem;">Verified Patient</span>
+          </div>
+          <div style="color:#d97736; margin-bottom:8px;">★★★★★</div>
+          <h4 style="font-size:1rem; margin-bottom:8px;">"Returned to the track 4 weeks ahead of surgeon predictions."</h4>
+          <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6; margin-bottom:16px;">
+            "Marcus Reid timed my gelatin and vitamin C 45 minutes before physical therapy. My tendon graft healed with zero fibrotic scarring."
+          </p>
+          <div style="margin-top:auto; font-size:0.8rem; color:var(--primary); font-weight:600;">
+            Specialist: Marcus Reid, MS, CSCS
+          </div>
+        </div>
+
+        <div style="background:#ffffff; border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:24px; display:flex; flex-direction:column; height:100%;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <img src="images/q (7).png" class="avatar-lg" alt="David C.">
+            <div>
+              <div style="font-weight:700; font-size:0.95rem;">David C. (Austin)</div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">Treated for Hashimoto's Thyroiditis</div>
+            </div>
+            <span class="badge badge-verified" style="margin-left:auto; font-size:0.65rem;">Verified Patient</span>
+          </div>
+          <div style="color:#d97736; margin-bottom:8px;">★★★★★</div>
+          <h4 style="font-size:1rem; margin-bottom:8px;">"Anti-TPO antibodies dropped from 840 to 110."</h4>
+          <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6; margin-bottom:16px;">
+            "Dr. Sharma didn't just give me pills. She identified my gluten cross-reactivity and cellular zinc deficiencies. My energy levels are fully back."
+          </p>
+          <div style="margin-top:auto; font-size:0.8rem; color:var(--primary); font-weight:600;">
+            Specialist: Dr. Kavita Sharma, MD
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Verification Pillars -->
+  <section style="padding: 70px 0; background:#ffffff;">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">The NOURISHMAP Standard</span>
+        <h2 class="section-title">Why Patients & Physicians Trust Our Portal</h2>
+        <p class="section-subtitle">We maintain the strictest provider credentialing framework in digital health nutrition.</p>
+      </div>
+
+      <div class="trust-pillars">
+        <div class="trust-pillar-card">
+          <div class="trust-icon">📜</div>
+          <h3 class="trust-pillar-title">100% License Verification</h3>
+          <p class="trust-pillar-desc">Every dietitian, RD, and MD is manually validated against state medical boards and accredited certifying councils.</p>
+        </div>
+        <div class="trust-pillar-card">
+          <div class="trust-icon">🔬</div>
+          <h3 class="trust-pillar-title">Evidence-First Protocols</h3>
+          <p class="trust-pillar-desc">No pseudoscientific detoxes or fad diets. All recommendations align with peer-reviewed medical nutrition therapy.</p>
+        </div>
+        <div class="trust-pillar-card">
+          <div class="trust-icon">🔒</div>
+          <h3 class="trust-pillar-title">Verified Patient Reviews</h3>
+          <p class="trust-pillar-desc">Only authenticated patients who completed a consultation can leave verified feedback and clinical ratings.</p>
+        </div>
+        <div class="trust-pillar-card">
+          <div class="trust-icon">⚡</div>
+          <h3 class="trust-pillar-title">Direct Lead & Telehealth</h3>
+          <p class="trust-pillar-desc">Seamless appointment requests, insurance pre-checks, and HIPAA-compliant communication tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Recovery Guides Preview with Visuals -->
+  <section style="padding: 70px 0; background: var(--bg-main);">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: 36px; flex-wrap:wrap; gap:16px;">
+        <div>
+          <span class="section-eyebrow">Clinical Knowledge Hub</span>
+          <h2 class="section-title" style="margin-bottom:0;">Latest Evidence-Based Recovery Guides</h2>
+        </div>
+        <a href="guides.html" class="btn btn-outline btn-sm">Explore Resource Library →</a>
+      </div>
+
+      <div class="guides-grid">
+        <div class="guide-card">
+          <div class="guide-img-box">
+            <img src="images/image-7.png" alt="Gut healing protocol">
+          </div>
+          <div class="guide-content">
+            <div class="guide-meta">
+              <span class="badge badge-tag">Gut Health</span>
+              <span>• 8 min read</span>
+            </div>
+            <h3 class="guide-title"><a href="guides.html">The 4-Phase Clinical Gut Healing Protocol: From Dysbiosis to Diversity</a></h3>
+            <p class="guide-excerpt">A step-by-step clinical framework to eliminate pathogens, soothe mucosal linings, and re-inoculate key Keystone bacterial strains.</p>
+            <div class="guide-footer">
+              <div class="guide-author">
+                <img src="images/image-2.png" class="guide-author-avatar" alt="Dr. Vance">
+                <span>Dr. Elena Vance, MS, RD</span>
+              </div>
+              <a href="guides.html" class="btn btn-sm btn-subtle">Read →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-img-box">
+            <img src="images/image-8.png" alt="Collagen synthesis">
+          </div>
+          <div class="guide-content">
+            <div class="guide-meta">
+              <span class="badge badge-tag">Athletic Rehab</span>
+              <span>• 6 min read</span>
+            </div>
+            <h3 class="guide-title"><a href="guides.html">Nutritional Biomarkers in Orthopedic Surgery & Ligament Regeneration</a></h3>
+            <p class="guide-excerpt">How leucine pulsing, hydrolyzed collagen type I & III, and vitamin C timing dramatically accelerate tensile strength recovery in ACL repairs.</p>
+            <div class="guide-footer">
+              <div class="guide-author">
+                <img src="images/image-1.png" class="guide-author-avatar" alt="Marcus Reid">
+                <span>Marcus Reid, MS, CSCS</span>
+              </div>
+              <a href="guides.html" class="btn btn-sm btn-subtle">Read →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-img-box">
+            <img src="images/image-9.png" alt="AIP Protocol">
+          </div>
+          <div class="guide-content">
+            <div class="guide-meta">
+              <span class="badge badge-tag">Autoimmune</span>
+              <span>• 10 min read</span>
+            </div>
+            <h3 class="guide-title"><a href="guides.html">Calming the Storm: Navigating the Autoimmune Protocol (AIP)</a></h3>
+            <p class="guide-excerpt">Why extreme elimination can cause micronutrient starvation and how to safely navigate the re-introduction phase.</p>
+            <div class="guide-footer">
+              <div class="guide-author">
+                <img src="images/image-4.png" class="guide-author-avatar" alt="Dr. Sharma">
+                <span>Dr. Kavita Sharma, MD</span>
+              </div>
+              <a href="guides.html" class="btn btn-sm btn-subtle">Read →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Provider CTA Banner with Images -->
+  <section style="background: var(--bg-dark); color:#ffffff; padding: 70px 0;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:32px;">
+      <div style="max-width:640px;">
+        <span style="color:var(--secondary); font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em;">Specialist Community</span>
+        <h2 style="color:#ffffff; font-size:2.2rem; margin:8px 0 14px;">Are you a clinical nutrition specialist or recovery clinic?</h2>
+        <p style="color:rgba(255,255,255,0.75); font-size:1rem; line-height:1.6;">
+          Join the authoritative directory trusted by over 150,000 monthly patients. Showcase your board credentials, receive direct high-intent consultation leads, and manage your practice profile.
+        </p>
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="submit.html" class="btn btn-secondary btn-lg">Apply for Verification</a>
+        <a href="owner-dashboard.html" class="btn btn-outline btn-lg" style="color:#ffffff; border-color:rgba(255,255,255,0.3);">Explore Provider Portal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compare Modal -->
+  <div class="modal-backdrop" id="compareModal">
+    <div class="modal-content" style="max-width:800px;">
+      <button class="modal-close-btn" onclick="document.getElementById('compareModal').classList.remove('open')">✕</button>
+      <h3 style="font-size:1.4rem; color:var(--primary-dark); margin-bottom:18px;">Specialist Side-by-Side Comparison</h3>
+      <div id="compareModalBody">
+        <!-- Content Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">🌿</div>
+            <div>
+              <span class="brand-name">NOURISH<span style="color:var(--secondary)">MAP</span></span>
+              <span class="brand-tagline" style="color:rgba(255,255,255,0.6);">Find. Understand. Recover.</span>
+            </div>
+          </a>
+          <p>
+            NOURISHMAP is the definitive medical nutrition recovery portal and verified practitioner directory, bridging clinical science and compassionate patient discovery.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://facebook.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://linkedin.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://x.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="X / Twitter" aria-label="X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+            <a href="https://youtube.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+            </a>
+          </div>
+          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5);">
+            © 2026 NOURISHMAP Inc. All rights reserved.
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Directory</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="directory.html?category=gut-health">Gut Health & SIBO</a></li>
+            <li class="footer-link"><a href="directory.html?category=sports-injury">Athletic Injury Rehab</a></li>
+            <li class="footer-link"><a href="directory.html?category=ed-recovery">Eating Disorder Nutrition</a></li>
+            <li class="footer-link"><a href="directory.html?category=autoimmune-chronic">Autoimmune & AIP</a></li>
+            <li class="footer-link"><a href="directory.html?category=post-bariatric">Post-Bariatric Dietitians</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="guides.html">Clinical Recovery Hub</a></li>
+            <li class="footer-link"><a href="guides.html">Nutrient Deficiency Check</a></li>
+            <li class="footer-link"><a href="submit.html">Verification Standards</a></li>
+            <li class="footer-link"><a href="guides.html">Research & Case Studies</a></li>
+            <li class="footer-link"><a href="submit.html">FAQ & Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Portals</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="user-dashboard.html">Patient Dashboard</a></li>
+            <li class="footer-link"><a href="owner-dashboard.html">Specialist Portal</a></li>
+            <li class="footer-link"><a href="admin-dashboard.html">Admin Moderation</a></li>
+            <li class="footer-link"><a href="submit.html">Submit Practice</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Clinical Digest</h4>
+          <p style="font-size:0.85rem; margin-bottom:12px;">Get monthly peer-reviewed nutrition protocols and recovery updates directly in your inbox.</p>
+          <form onsubmit="event.preventDefault(); showToast('Subscribed to NOURISHMAP Clinical Digest!');">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary btn-sm" style="width:100%;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>Medical Disclaimer: Information on NOURISHMAP is for educational & discovery purposes and does not replace individualized clinical physician advice.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">HIPAA Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
