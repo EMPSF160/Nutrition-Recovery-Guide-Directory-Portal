@@ -29,7 +29,7 @@
       </div>
       <div class="topbar-links">
         <a href="submit.html" class="topbar-link">Are you a Specialist? <strong>Join the Directory</strong></a>
-        <a href="user-dashboard.html" class="topbar-link">Patient Portal</a>
+        <a href="login.html" class="topbar-link">🔐 Sign In / Account</a>
       </div>
     </div>
   </div>
@@ -63,6 +63,7 @@
       </nav>
 
       <div class="header-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
         <a href="submit.html" class="btn btn-primary btn-sm">+ Submit Listing</a>
         <button class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
       </div>
@@ -171,6 +172,17 @@
 
     <!-- Results Area -->
     <section>
+      <!-- Quick Specialty Pills Bar -->
+      <div class="directory-quick-pills" id="quickPillsBar">
+        <button class="quick-pill-btn active" onclick="setQuickCategory('all')">✨ All Specialties</button>
+        <button class="quick-pill-btn" onclick="setQuickCategory('gut-health')">🌱 Gut Health & SIBO</button>
+        <button class="quick-pill-btn" onclick="setQuickCategory('sports-injury')">⚡ Athletic Injury</button>
+        <button class="quick-pill-btn" onclick="setQuickCategory('autoimmune-chronic')">🛡️ Autoimmune & AIP</button>
+        <button class="quick-pill-btn" onclick="setQuickCategory('ed-recovery')">🤍 Eating Disorders</button>
+        <button class="quick-pill-btn" onclick="setQuickCategory('post-bariatric')">⚖️ Post-Bariatric</button>
+        <button class="quick-pill-btn" onclick="setQuickCategory('oncology-rehab')">🎗️ Oncology Recovery</button>
+      </div>
+
       <!-- Results Header Bar -->
       <div class="directory-results-header">
         <div>

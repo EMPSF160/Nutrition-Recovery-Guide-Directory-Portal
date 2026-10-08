@@ -68,19 +68,15 @@ function initNavbar() {
     drawer.innerHTML = `
       <div class="mobile-nav-content">
         <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:1px solid var(--border-light);">
-          <a href="index.html" class="brand-logo" style="text-decoration:none;">
-            <div class="brand-icon">🌿</div>
-            <div>
-              <span class="brand-name">NOURISH<span>MAP</span></span>
-            </div>
-          </a>
-          <button class="mobile-drawer-close" style="width:36px; height:36px; border-radius:50%; background:var(--bg-subtle); display:flex; align-items:center; justify-content:center; font-size:1rem; color:var(--text-muted);">✕</button>
+          <div style="font-size:0.875rem; font-weight:700; color:var(--text-primary); text-transform:uppercase; letter-spacing:0.06em;">Navigation</div>
+          <button class="mobile-drawer-close" style="width:34px; height:34px; border-radius:50%; background:var(--bg-subtle); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:var(--text-primary); border:1px solid var(--border-light); cursor:pointer;">✕</button>
         </div>
         <div style="display:flex; flex-direction:column; gap:8px;">
           <a href="index.html" class="dropdown-item" style="font-size:1rem; font-weight:600; padding:12px;">🏠 Home</a>
           <a href="directory.html" class="dropdown-item" style="font-size:1rem; font-weight:600; padding:12px;">🔍 Explore Directory</a>
           <a href="guides.html" class="dropdown-item" style="font-size:1rem; font-weight:600; padding:12px;">📚 Recovery Guides</a>
           <a href="submit.html" class="dropdown-item" style="font-size:1rem; font-weight:600; padding:12px;">🩺 List Your Practice</a>
+          <a href="login.html" class="dropdown-item" style="font-size:1rem; font-weight:600; padding:12px; color:var(--primary-dark);">🔐 Sign In / Authentication</a>
         </div>
         <div style="padding-top:12px; border-top:1px solid var(--border-light);">
           <div style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Portals & Dashboards</div>
@@ -662,6 +658,31 @@ function resetDirectoryFilters() {
   if (searchInput) searchInput.value = '';
   const locSelect = document.getElementById('locationFilter');
   if (locSelect) locSelect.value = 'all';
+  const pills = document.querySelectorAll('.quick-pill-btn');
+  pills.forEach((p, idx) => {
+    if (idx === 0) p.classList.add('active');
+    else p.classList.remove('active');
+  });
+  filterDirectoryListings();
+}
+
+function setQuickCategory(catId) {
+  const buttons = document.querySelectorAll('.quick-pill-btn');
+  buttons.forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.getAttribute('onclick')?.includes(`'${catId}'`)) {
+      btn.classList.add('active');
+    }
+  });
+
+  const checkboxes = document.querySelectorAll('input[name="category"]');
+  if (catId === 'all') {
+    checkboxes.forEach(c => c.checked = false);
+  } else {
+    checkboxes.forEach(c => {
+      c.checked = (c.value === catId);
+    });
+  }
   filterDirectoryListings();
 }
 
@@ -889,25 +910,39 @@ function initSubmitPage() {
 
 // ===================== USER DASHBOARD =====================
 function initUserDashboard() {
+  initDashboardTabs('user');
+  renderUserSavedListings();
+}
+
+function renderUserSavedListings() {
   const savedIds = NOURISH_STORE.getSavedListings();
   const savedContainer = document.getElementById('userSavedListings');
   if (savedContainer) {
     const specs = savedIds.map(id => NOURISH_DATA.listings.find(l => l.id === id)).filter(Boolean);
     if (specs.length === 0) {
-      savedContainer.innerHTML = `<p style="color:var(--text-muted); grid-column:1/-1; font-size:0.9rem;">No saved specialists yet. Explore our directory and bookmark specialists!</p>`;
+      savedContainer.innerHTML = `
+        <div style="background:#ffffff; padding:32px 20px; text-align:center; border-radius:var(--radius-lg); border:1px solid var(--border-light); grid-column:1/-1;">
+          <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:12px;">No saved specialists yet.</p>
+          <a href="directory.html" class="btn btn-sm btn-primary">Browse Clinical Directory</a>
+        </div>
+      `;
     } else {
       savedContainer.innerHTML = specs.map(item => `
         <div class="listing-card">
           <div class="listing-img-box">
             <img src="${item.image}" alt="${item.name}">
+            <div class="listing-overlay-badges">
+              ${item.isVerified ? '<span class="badge badge-verified">✓ Verified</span>' : ''}
+            </div>
+            <button class="listing-favorite-btn active" onclick="handleFavoriteToggle(this, '${item.id}'); renderUserSavedListings();" title="Remove Bookmark">♥</button>
           </div>
           <div class="listing-content">
             <span class="listing-category">${item.categoryName}</span>
-            <h4 class="listing-name" style="font-size:1rem;"><a href="listing-detail.html?id=${item.id}">${item.name}</a></h4>
-            <div class="listing-location">📍 ${item.location}</div>
-            <div class="listing-footer">
-              <span style="font-size:0.85rem; font-weight:700; color:#b45309;">★ ${item.rating}</span>
-              <a href="listing-detail.html?id=${item.id}" class="btn btn-sm btn-primary">Book</a>
+            <h4 class="listing-name" style="font-size:1.05rem;"><a href="listing-detail.html?id=${item.id}">${item.name}</a></h4>
+            <div class="listing-location">📍 ${item.location} • ${item.priceLabel}</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; width:100%; margin-top:10px; padding-top:10px; border-top:1px solid var(--border-light);">
+              <span style="font-size:0.85rem; font-weight:700; color:#b45309;">⭐ ${item.rating} (${item.reviewsCount})</span>
+              <a href="listing-detail.html?id=${item.id}" class="btn btn-sm btn-primary">Book Consult</a>
             </div>
           </div>
         </div>
@@ -918,6 +953,11 @@ function initUserDashboard() {
 
 // ===================== OWNER DASHBOARD =====================
 function initOwnerDashboard() {
+  initDashboardTabs('owner');
+  renderOwnerLeads();
+}
+
+function renderOwnerLeads() {
   const leadsTable = document.getElementById('ownerLeadsTableBody');
   if (leadsTable) {
     leadsTable.innerHTML = NOURISH_DATA.leads.map(ld => `
@@ -926,14 +966,20 @@ function initOwnerDashboard() {
         <td>
           <div style="display:flex; align-items:center; gap:8px;">
             <img src="${ld.avatar || 'images/q (8).png'}" class="avatar-sm" alt="${ld.client}">
-            <span>${ld.client}</span>
+            <div>
+              <div style="font-weight:600;">${ld.client}</div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">${ld.email}</div>
+            </div>
           </div>
         </td>
         <td>${ld.service}</td>
         <td>${ld.date}</td>
         <td><span class="badge badge-verified" style="font-size:0.7rem;">${ld.status}</span></td>
         <td>
-          <button class="btn btn-sm btn-subtle" onclick="showToast('Opening client medical intake form...')">Review</button>
+          <div style="display:flex; gap:6px;">
+            <button class="btn btn-sm btn-primary" onclick="showToast('Accepted lead! Sent intake paperwork to patient.')">Accept</button>
+            <button class="btn btn-sm btn-outline" onclick="showToast('Opening clinical messaging window...')">Chat</button>
+          </div>
         </td>
       </tr>
     `).join('');
@@ -942,6 +988,11 @@ function initOwnerDashboard() {
 
 // ===================== ADMIN DASHBOARD =====================
 function initAdminDashboard() {
+  initDashboardTabs('admin');
+  renderAdminTables();
+}
+
+function renderAdminTables() {
   const adminTable = document.getElementById('adminSubmissionsTable');
   if (adminTable) {
     adminTable.innerHTML = `
@@ -969,12 +1020,74 @@ function initAdminDashboard() {
         <td><strong>SUB-996</strong></td>
         <td>BioRecovery Integrative Center</td>
         <td>Athletic Injury & Tissue Repair</td>
-        <td>Pending Clinical Board</td>
+        <td>Pending State Board</td>
         <td><span class="badge badge-featured" style="font-size:0.7rem;">Pending Review</span></td>
         <td>
-          <button class="btn btn-sm btn-primary" onclick="showToast('Approved listing for public directory!')">Approve</button>
+          <div style="display:flex; gap:6px;">
+            <button class="btn btn-sm btn-primary" onclick="showToast('Approved listing for public directory!')">Approve</button>
+            <button class="btn btn-sm btn-outline" onclick="showToast('Requested secondary verification docs.')">Request Info</button>
+          </div>
         </td>
       </tr>
     `;
+  }
+}
+
+// Global Multi-Tab Switcher for All Portals
+function initDashboardTabs(portalType) {
+  const navItems = document.querySelectorAll('.dashboard-nav-item a');
+  const panes = document.querySelectorAll('.dashboard-tab-pane');
+
+  function switchTab(targetHash) {
+    if (!targetHash) return;
+    const cleanHash = targetHash.replace('#', '');
+    
+    // Update nav links
+    document.querySelectorAll('.dashboard-nav-item').forEach(item => {
+      const link = item.querySelector('a');
+      const href = link?.getAttribute('href');
+      if (href === `#${cleanHash}`) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+
+    // Update tab panes
+    let found = false;
+    panes.forEach(pane => {
+      if (pane.id === `tab-${cleanHash}` || pane.getAttribute('data-tab') === cleanHash) {
+        pane.classList.add('active');
+        found = true;
+      } else {
+        pane.classList.remove('active');
+      }
+    });
+
+    // If no pane with tab-${cleanHash}, activate default
+    if (!found && panes.length > 0) {
+      panes[0].classList.add('active');
+    }
+
+    // Scroll to top of main container on mobile
+    if (window.innerWidth < 900) {
+      document.querySelector('.dashboard-main')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  navItems.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#') && href !== '#') {
+        e.preventDefault();
+        window.location.hash = href;
+        switchTab(href);
+      }
+    });
+  });
+
+  // Check initial hash
+  if (window.location.hash) {
+    switchTab(window.location.hash);
   }
 }

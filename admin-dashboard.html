@@ -18,58 +18,39 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body data-page="admin-dashboard">
+<body data-page="admin-dashboard" style="padding-top:0 !important; background:var(--bg-main);">
 
-  <!-- Top Announcement Bar -->
-  <div class="topbar">
-    <div class="container topbar-content">
-      <div>
-        <span class="topbar-badge" style="background:#b91c1c; color:#fee2e2;">SUPERADMIN ACCESS</span>
-        <span>Directory Compliance & Medical Licensure Audit System</span>
-      </div>
-      <div class="topbar-links">
-        <a href="index.html" class="topbar-link">Public Home ↗</a>
-        <a href="directory.html" class="topbar-link">Live Directory ↗</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo">
+  <!-- Dedicated SaaS Portal Header (Clean & Isolated) -->
+  <header class="portal-app-header">
+    <div style="display:flex; align-items:center; gap:16px;">
+      <a href="index.html" class="portal-brand">
         <div class="brand-icon" style="background:linear-gradient(135deg, #1e293b, #0f172a);">⚙️</div>
         <div>
           <span class="brand-name">NOURISH<span>ADMIN</span></span>
-          <span class="brand-tagline">Clinical Governance & Directory Control</span>
         </div>
       </a>
+      <span class="portal-pill" style="background:#fef2f2; color:#991b1b; border-color:#fecaca;">Superadmin Governance</span>
+    </div>
 
-      <nav class="nav-desktop">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="directory.html" class="nav-link">Explore Directory</a>
-        <a href="admin-dashboard.html" class="nav-link active">Admin Portal</a>
-        
-        <!-- Dashboard Dropdown -->
-        <div class="dashboard-dropdown">
-          <a href="#" class="nav-link" style="gap:4px;">Switch View ▾</a>
-          <div class="dropdown-menu">
-            <a href="user-dashboard.html" class="dropdown-item">👤 Patient / User Dashboard</a>
-            <a href="owner-dashboard.html" class="dropdown-item">🩺 Specialist Practice Portal</a>
-            <a href="admin-dashboard.html" class="dropdown-item">⚙️ Admin Moderation Center</a>
-          </div>
+    <div class="portal-nav-actions">
+      <!-- Portal Role Switcher -->
+      <div class="dashboard-dropdown">
+        <button class="btn btn-sm btn-subtle" style="gap:6px;">Switch Portal ▾</button>
+        <div class="dropdown-menu">
+          <a href="user-dashboard.html" class="dropdown-item">👤 Patient / User Dashboard</a>
+          <a href="owner-dashboard.html" class="dropdown-item">🩺 Specialist Practice Portal</a>
+          <a href="admin-dashboard.html" class="dropdown-item" style="font-weight:700; color:var(--primary);">⚙️ Admin Moderation (Active)</a>
         </div>
-      </nav>
-
-      <div class="header-actions">
-        <span class="badge badge-verified" style="font-size:0.75rem;">System: Healthy (200 OK)</span>
-        <button class="btn btn-outline btn-sm" onclick="handleDashboardLogout('Admin session closed. Returning to Home...')">Sign Out</button>
       </div>
+
+      <span class="badge badge-verified" style="font-size:0.75rem;">System: Healthy (200 OK)</span>
+      <a href="directory.html" class="btn btn-outline btn-sm" target="_blank">Live Directory ↗</a>
+      <button class="btn btn-primary btn-sm" onclick="handleDashboardLogout('Admin session closed. Returning to Home...')">Sign Out</button>
     </div>
   </header>
 
   <!-- Dashboard Layout -->
-  <div class="dashboard-layout">
+  <div class="dashboard-layout" style="min-height:calc(100vh - 70px);">
     
     <!-- Sidebar Navigation -->
     <aside class="dashboard-sidebar">
@@ -85,14 +66,14 @@
 
       <ul class="dashboard-nav-list">
         <li class="dashboard-nav-item active"><a href="#submissions"><span>📋</span> Provider Submissions <span class="badge-count">1</span></a></li>
-        <li class="dashboard-nav-item"><a href="#listings" onclick="showToast('Switched to All 2,400+ Listings')"><span>🩺</span> Active Practitioners (2,418)</a></li>
-        <li class="dashboard-nav-item"><a href="#users" onclick="showToast('Switched to User & Patient Registry')"><span>👥</span> Registered Patients (18,400)</a></li>
-        <li class="dashboard-nav-item"><a href="#categories" onclick="showToast('Switched to Categories & Taxonomy')"><span>🏷️</span> Categories & Taxonomy</a></li>
-        <li class="dashboard-nav-item"><a href="#locations" onclick="showToast('Switched to Location Geocoding')"><span>📍</span> Locations & Geocoding</a></li>
-        <li class="dashboard-nav-item"><a href="#reviews" onclick="showToast('Switched to Review Moderation Queue')"><span>⭐</span> Review Moderation</a></li>
-        <li class="dashboard-nav-item"><a href="#seo" onclick="showToast('Switched to SEO & Landing Pages Manager')"><span>🔍</span> SEO Landing Pages</a></li>
-        <li class="dashboard-nav-item"><a href="#analytics" onclick="showToast('Switched to Platform Analytics')"><span>📊</span> System Analytics</a></li>
-        <li class="dashboard-nav-item"><a href="#settings" onclick="showToast('Switched to Platform Settings')"><span>⚙️</span> Portal Settings</a></li>
+        <li class="dashboard-nav-item"><a href="#listings"><span>🩺</span> Active Practitioners (2,418)</a></li>
+        <li class="dashboard-nav-item"><a href="#users"><span>👥</span> Registered Patients (18,400)</a></li>
+        <li class="dashboard-nav-item"><a href="#categories"><span>🏷️</span> Categories & Taxonomy</a></li>
+        <li class="dashboard-nav-item"><a href="#locations"><span>📍</span> Locations & Geocoding</a></li>
+        <li class="dashboard-nav-item"><a href="#reviews"><span>⭐</span> Review Moderation</a></li>
+        <li class="dashboard-nav-item"><a href="#seo"><span>🔍</span> SEO Landing Pages</a></li>
+        <li class="dashboard-nav-item"><a href="#analytics"><span>📊</span> System Analytics</a></li>
+        <li class="dashboard-nav-item"><a href="#settings"><span>⚙️</span> Portal Settings</a></li>
         <li class="dashboard-nav-item" style="margin-top: 14px; border-top: 1px solid var(--border-light); padding-top: 8px;"><a href="javascript:void(0)" onclick="handleDashboardLogout('Admin session closed. Returning to Home...')"><span style="color:var(--accent);">🚪</span> Sign Out (Home)</a></li>
       </ul>
     </aside>
@@ -115,131 +96,278 @@
           <div class="stat-icon" style="background:#e0f2fe; color:#0369a1;">🩺</div>
           <div>
             <div class="stat-val">2,418</div>
-            <div class="stat-title">Verified Practitioners</div>
+            <div class="stat-title">Verified Specialists</div>
           </div>
         </div>
 
         <div class="stat-card">
           <div class="stat-icon" style="background:#fef3c7; color:#b45309;">⏳</div>
           <div>
-            <div class="stat-val">1 Pending</div>
-            <div class="stat-title">Submissions in Queue</div>
+            <div class="stat-val">1</div>
+            <div class="stat-title">Pending Submission</div>
           </div>
         </div>
 
         <div class="stat-card">
-          <div class="stat-icon" style="background:#dcfce7; color:#15803d;">📥</div>
+          <div class="stat-icon" style="background:#ecfdf5; color:#047857;">👥</div>
           <div>
-            <div class="stat-val">14,892</div>
-            <div class="stat-title">Monthly Leads Routed</div>
+            <div class="stat-val">18,400</div>
+            <div class="stat-title">Patient Members</div>
           </div>
         </div>
 
         <div class="stat-card">
           <div class="stat-icon" style="background:#f3e8ff; color:#7e22ce;">⭐</div>
           <div>
-            <div class="stat-val">99.2%</div>
-            <div class="stat-title">Licensure Authenticity</div>
+            <div class="stat-val">99.4%</div>
+            <div class="stat-title">Audit Compliance</div>
           </div>
         </div>
       </div>
 
-      <!-- Provider Onboarding Moderation Queue -->
-      <div style="background:#ffffff; border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:24px; box-shadow:var(--shadow-xs); margin-bottom:32px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
-          <h2 style="font-size:1.25rem; color:var(--primary-dark);">Licensure & Provider Moderation Queue</h2>
-          <span class="badge badge-featured">Action Required</span>
-        </div>
+      <!-- TAB 1: PROVIDER SUBMISSIONS -->
+      <div class="dashboard-tab-pane active" id="tab-submissions">
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:24px; margin-bottom:32px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+            <h3 style="font-size:1.2rem; color:var(--primary-dark);">Practitioner Onboarding & Licensure Queue</h3>
+            <span class="badge badge-featured" style="font-size:0.75rem;">1 Application Awaiting Review</span>
+          </div>
 
-        <div class="table-responsive">
-          <table class="dashboard-table">
-            <thead>
-              <tr>
-                <th>App ID</th>
-                <th>Applicant Practitioner / Clinic</th>
-                <th>Specialization Category</th>
-                <th>Licensure Document</th>
-                <th>Audit Status</th>
-                <th>Moderation Action</th>
-              </tr>
-            </thead>
-            <tbody id="adminSubmissionsTable">
-              <!-- Injected via JS -->
-            </tbody>
-          </table>
+          <div style="overflow-x:auto;">
+            <table class="leads-table" style="width:100%;">
+              <thead>
+                <tr>
+                  <th>Ref ID</th>
+                  <th>Applicant Name</th>
+                  <th>Clinical Discipline</th>
+                  <th>Submitted Licensure</th>
+                  <th>Verification Status</th>
+                  <th>Audit Decision</th>
+                </tr>
+              </thead>
+              <tbody id="adminSubmissionsTable">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
-      <!-- Section: SEO Landing Pages & Taxonomy Controls -->
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px;">
-        
-        <div style="background:#ffffff; border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:24px;">
-          <h3 style="font-size:1.15rem; color:var(--primary-dark); margin-bottom:12px;">🏷️ Active Taxonomy Categories (6)</h3>
-          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:14px;">Manage landing slugs, canonical keywords, and featured specialists per hub.</p>
-          <ul style="list-style:none; display:grid; gap:8px; font-size:0.88rem;">
-            <li style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border-light);">
-              <span>🌱 Gut Health & SIBO</span>
-              <span style="color:var(--text-muted);">48 Active • <a href="#" style="color:var(--primary); font-weight:600;" onclick="showToast('Opening Gut Health SEO Config')">Edit SEO</a></span>
-            </li>
-            <li style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border-light);">
-              <span>⚡ Athletic Injury & Tissue</span>
-              <span style="color:var(--text-muted);">29 Active • <a href="#" style="color:var(--primary); font-weight:600;" onclick="showToast('Opening Athletic SEO Config')">Edit SEO</a></span>
-            </li>
-            <li style="display:flex; justify-content:space-between; padding:8px 0;">
-              <span>🤍 Eating Disorder Nutrition</span>
-              <span style="color:var(--text-muted);">41 Active • <a href="#" style="color:var(--primary); font-weight:600;" onclick="showToast('Opening ED Recovery SEO Config')">Edit SEO</a></span>
-            </li>
-          </ul>
+      <!-- TAB 2: ACTIVE PRACTITIONERS -->
+      <div class="dashboard-tab-pane" id="tab-listings">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <h2 style="font-size:1.3rem; color:var(--primary-dark);">Active Practitioners Directory (2,418)</h2>
+          <div style="display:flex; gap:10px;">
+            <input type="text" class="form-control" style="width:240px; padding:6px 12px; font-size:0.85rem;" placeholder="Search by name / license...">
+            <button class="btn btn-sm btn-outline" onclick="showToast('Exporting active practitioner database to CSV...')">Export CSV</button>
+          </div>
         </div>
 
-        <div style="background:#ffffff; border-radius:var(--radius-lg); border:1px solid var(--border-light); padding:24px;">
-          <h3 style="font-size:1.15rem; color:var(--primary-dark); margin-bottom:12px;">⚙️ Platform Security & HIPAA Compliance</h3>
-          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:14px;">Real-time integrity logs for patient intake forms and lead notifications.</p>
-          
-          <div style="display:grid; gap:10px; font-size:0.85rem;">
-            <div style="display:flex; justify-content:space-between;">
-              <span>SSL / TLS Encryption:</span>
-              <span style="color:#15803d; font-weight:700;">TLS 1.3 Active</span>
+        <div style="display:grid; gap:12px; margin-bottom:32px;">
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-md); padding:16px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div style="display:flex; gap:14px; align-items:center;">
+              <img src="images/image-2.png" class="avatar-md" alt="Elena Vance">
+              <div>
+                <h4 style="font-size:1rem; margin-bottom:2px;">Dr. Elena Vance, MS, RD, CNS</h4>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Gut Health & SIBO • New York, NY • License #NY-004921</div>
+              </div>
             </div>
-            <div style="display:flex; justify-content:space-between;">
-              <span>Database Encryption at Rest:</span>
-              <span style="color:#15803d; font-weight:700;">AES-256 Enabled</span>
-            </div>
-            <div style="display:flex; justify-content:space-between;">
-              <span>Automated Stale Credential Purge:</span>
-              <span style="color:var(--primary); font-weight:700;">Scheduled (Sunday 02:00 UTC)</span>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <span class="badge badge-verified">✓ Verified</span>
+              <button class="btn btn-sm btn-outline" onclick="showToast('Opened clinician audit record.')">Audit</button>
             </div>
           </div>
-          
-          <button class="btn btn-outline btn-sm" style="width:100%; margin-top:20px;" onclick="showToast('Security audit report generated.')">Download Compliance Audit PDF</button>
+
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-md); padding:16px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div style="display:flex; gap:14px; align-items:center;">
+              <img src="images/image-1.png" class="avatar-md" alt="Marcus Reid">
+              <div>
+                <h4 style="font-size:1rem; margin-bottom:2px;">Marcus Reid, MS, CSCS, CISSN</h4>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Athletic Injury & Tissue Repair • Los Angeles, CA • License #CA-119280</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <span class="badge badge-verified">✓ Verified</span>
+              <button class="btn btn-sm btn-outline" onclick="showToast('Opened clinician audit record.')">Audit</button>
+            </div>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-md); padding:16px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div style="display:flex; gap:14px; align-items:center;">
+              <img src="images/image-3.png" class="avatar-md" alt="Sarah Jenkins">
+              <div>
+                <h4 style="font-size:1rem; margin-bottom:2px;">Sarah Jenkins, RDN, LDN, CEDRD-S</h4>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Eating Disorder Nutrition • Chicago, IL • License #IL-884920</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <span class="badge badge-verified">✓ Verified</span>
+              <button class="btn btn-sm btn-outline" onclick="showToast('Opened clinician audit record.')">Audit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: REGISTERED PATIENTS -->
+      <div class="dashboard-tab-pane" id="tab-users">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <h2 style="font-size:1.3rem; color:var(--primary-dark);">Registered Patient Registry (18,400)</h2>
+          <button class="btn btn-sm btn-outline" onclick="showToast('Exporting anonymized patient registry...')">📥 Export Anonymized Data</button>
         </div>
 
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:20px; margin-bottom:32px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--border-light);">
+            <div>
+              <div style="font-weight:600;">Rachel Vance (Member #PT-9012)</div>
+              <div style="font-size:0.8rem; color:var(--text-muted);">rachel.vance@example.com • 1 Active Consult Booked</div>
+            </div>
+            <span class="badge badge-verified" style="font-size:0.7rem;">HIPAA Verified</span>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid var(--border-light);">
+            <div>
+              <div style="font-weight:600;">David Zhao (Member #PT-9011)</div>
+              <div style="font-size:0.8rem; color:var(--text-muted);">david.zhao@example.com • Orthopedic Rehab Intake</div>
+            </div>
+            <span class="badge badge-verified" style="font-size:0.7rem;">HIPAA Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: CATEGORIES & TAXONOMY -->
+      <div class="dashboard-tab-pane" id="tab-categories">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <h2 style="font-size:1.3rem; color:var(--primary-dark);">Clinical Specialization Taxonomy</h2>
+          <button class="btn btn-sm btn-primary" onclick="showToast('Add medical taxonomy modal opened.')">+ Add New Category</button>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:32px;">
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:20px;">
+            <div style="font-size:1.5rem; margin-bottom:6px;">🌱</div>
+            <h4 style="font-size:1.05rem; margin-bottom:4px;">Gut Health & SIBO</h4>
+            <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">54 Verified Specialists Active</div>
+            <button class="btn btn-sm btn-outline" onclick="showToast('Editing taxonomy rules.')">Edit Taxonomy</button>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:20px;">
+            <div style="font-size:1.5rem; margin-bottom:6px;">⚡</div>
+            <h4 style="font-size:1.05rem; margin-bottom:4px;">Athletic Injury & Tissue Repair</h4>
+            <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">35 Verified Specialists Active</div>
+            <button class="btn btn-sm btn-outline" onclick="showToast('Editing taxonomy rules.')">Edit Taxonomy</button>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:20px;">
+            <div style="font-size:1.5rem; margin-bottom:6px;">🛡️</div>
+            <h4 style="font-size:1.05rem; margin-bottom:4px;">Autoimmune & Fatigue (AIP)</h4>
+            <div style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">42 Verified Specialists Active</div>
+            <button class="btn btn-sm btn-outline" onclick="showToast('Editing taxonomy rules.')">Edit Taxonomy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: LOCATIONS & GEOCODING -->
+      <div class="dashboard-tab-pane" id="tab-locations">
+        <h2 style="font-size:1.3rem; color:var(--primary-dark); margin-bottom:18px;">Geocoding & Telehealth Licensure Boundaries</h2>
+
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:24px; max-width:720px;">
+          <div style="margin-bottom:16px;">
+            <div style="font-weight:700; color:var(--primary-dark);">Primary Metropolitan Hubs:</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:4px;">New York, Los Angeles, Chicago, Austin, Seattle, San Francisco, Boston, Miami, Denver, Atlanta, Dallas</div>
+          </div>
+          <div style="background:var(--bg-subtle); padding:16px; border-radius:var(--radius-md); font-size:0.85rem;">
+            📍 Automated Distance Proximity Engine: <strong>Active (50-mile default geofence)</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 6: REVIEW MODERATION -->
+      <div class="dashboard-tab-pane" id="tab-reviews">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <h2 style="font-size:1.3rem; color:var(--primary-dark);">Review Moderation & Trust Queue</h2>
+          <span class="badge badge-verified">0 Flagged Reviews</span>
+        </div>
+
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:28px; text-align:center;">
+          <div style="font-size:2rem; margin-bottom:8px;">✅</div>
+          <h4>All Patient Reviews in Healthy Standing</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Every published review matches verified EHR consultation records.</p>
+        </div>
+      </div>
+
+      <!-- TAB 7: SEO LANDING PAGES -->
+      <div class="dashboard-tab-pane" id="tab-seo">
+        <h2 style="font-size:1.3rem; color:var(--primary-dark); margin-bottom:18px;">Automated Schema & SEO Landing Engine</h2>
+
+        <div style="display:grid; gap:12px; max-width:720px;">
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-md); padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-weight:600;">/sibo-dietitians-nyc (New York SIBO Specialists)</div>
+              <div style="font-size:0.8rem; color:var(--text-muted);">Indexed in Google • Schema: Physician / MedicalBusiness</div>
+            </div>
+            <span class="badge badge-verified">Rank #1</span>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-md); padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-weight:600;">/orthopedic-nutrition-acl-rehab</div>
+              <div style="font-size:0.8rem; color:var(--text-muted);">Indexed in Google • Schema: MedicalWebPage</div>
+            </div>
+            <span class="badge badge-verified">Rank #2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 8: SYSTEM ANALYTICS -->
+      <div class="dashboard-tab-pane" id="tab-analytics">
+        <h2 style="font-size:1.3rem; color:var(--primary-dark); margin-bottom:18px;">Core Platform Telemetry & Latency</h2>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:20px; margin-bottom:32px;">
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:20px;">
+            <div style="font-size:0.85rem; color:var(--text-muted);">Server Uptime (30d)</div>
+            <div style="font-size:1.8rem; font-weight:800; color:#16a34a; margin:6px 0;">99.98%</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Zero Sev-1 Incidents</div>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:20px;">
+            <div style="font-size:0.85rem; color:var(--text-muted);">API Gateway Latency</div>
+            <div style="font-size:1.8rem; font-weight:800; color:var(--primary-dark); margin:6px 0;">42 ms</div>
+            <div style="font-size:0.8rem; color:#16a34a;">Optimized Cloudflare Edge</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 9: PORTAL SETTINGS -->
+      <div class="dashboard-tab-pane" id="tab-settings">
+        <h2 style="font-size:1.3rem; color:var(--primary-dark); margin-bottom:18px;">Governance & Security Configuration</h2>
+
+        <div style="background:#ffffff; border:1px solid var(--border-light); border-radius:var(--radius-lg); padding:28px; max-width:680px;">
+          <form onsubmit="event.preventDefault(); showToast('Platform security rules updated.');">
+            <div class="form-group">
+              <label class="form-label">Automatic Licensure Verification Interval</label>
+              <select class="form-control">
+                <option selected>Every 90 Days (Standard CDR Protocol)</option>
+                <option>Every 30 Days (High Frequency)</option>
+                <option>Every 180 Days</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Superadmin Audit Notification Email</label>
+              <input type="email" class="form-control" value="compliance-lead@nourishmap.org">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin-top:16px;">Save Platform Settings</button>
+          </form>
+        </div>
       </div>
 
     </main>
   </div>
 
   <!-- Footer -->
-  <footer class="site-footer" style="padding: 30px 0;">
-    <div class="container text-center" style="font-size:0.85rem; color:rgba(255,255,255,0.7); display:flex; flex-direction:column; align-items:center; gap:12px;">
-      <div class="footer-social-links" style="margin:0; justify-content:center;">
-        <a href="https://instagram.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </a>
-        <a href="https://facebook.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-        </a>
-        <a href="https://linkedin.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" r="2"></circle></svg>
-        </a>
-        <a href="https://x.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="X / Twitter" aria-label="X">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-        </a>
-        <a href="https://youtube.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="YouTube">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
-        </a>
-      </div>
-      <div>NOURISHMAP Superadmin Control Center • Authorized Personnel Only • © 2026 NOURISHMAP Inc.</div>
+  <footer class="site-footer" style="padding: 24px 0; background:var(--primary-dark);">
+    <div class="container text-center" style="font-size:0.85rem; color:rgba(255,255,255,0.7); display:flex; flex-direction:column; align-items:center; gap:8px;">
+      <div>NOURISHADMIN Clinical Governance System • Medical Compliance Audit Active • © 2026 NOURISHMAP Inc.</div>
     </div>
   </footer>
 

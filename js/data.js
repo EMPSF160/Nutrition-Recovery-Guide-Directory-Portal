@@ -355,6 +355,112 @@ const NOURISH_DATA = {
       phone: '+1 (305) 555-0814',
       email: 'zoe@nourishvitality.com',
       clinicAddress: '1101 Brickell Ave, Miami, FL 33131'
+    },
+    {
+      id: 'dr-aris-thorne',
+      name: 'Dr. Aris Thorne, MD, CSO, CNS',
+      headline: 'Integrative Oncology & Cellular Recovery Specialist',
+      category: 'oncology-rehab',
+      categoryName: 'Oncology Recovery',
+      image: 'images/image-11.png',
+      gallery: ['images/image-21.png', 'images/image-22.png', 'images/image-23.png'],
+      rating: 4.98,
+      reviewsCount: 153,
+      location: 'New York, NY',
+      distance: '0.9 miles away',
+      price: 235,
+      priceLabel: 'From $235 / session',
+      isVerified: true,
+      isFeatured: true,
+      acceptsInsurance: true,
+      telehealth: true,
+      inPerson: true,
+      experience: '22 Years',
+      education: 'Memorial Sloan Kettering & Cornell Medicine',
+      bio: 'Dr. Thorne guides oncology patients through targeted micronutrition during immunotherapy, chemotherapy, and remission, focusing on cellular NAD+ replenishment and gut mucosal preservation.',
+      specialties: ['Immunotherapy Nutritional Adjuvants', 'Chemotherapy Induced Nausea', 'Glutamine & Mucosal Healing', 'Cellular Autophagy Protocols'],
+      services: [
+        { name: 'Comprehensive Oncology Nutritional Blueprint', price: '$320', desc: 'Pre-treatment cellular protection and anti-cachexia protocols.' },
+        { name: 'Survivorship Metabolic Optimization', price: '$235', desc: 'Long-term recurrence risk mitigation and vitality restoration.' }
+      ],
+      roadmap: [
+        { title: 'Phase 1: Pre-Infusion Cellular Shielding', desc: 'Timed polyphenol loading and alkaline hydration.' },
+        { title: 'Phase 2: Active Recovery & Appetite Support', desc: 'Zinc carnosine, branched-chain amino acids, and high-density smoothies.' }
+      ],
+      badges: ['Board Certified CSO', 'Cornell Clinical Fellow', 'Top Doctor 2026', 'Verified Credentials'],
+      phone: '+1 (212) 555-0782',
+      email: 'thorne@nyconcologynutrition.org',
+      clinicAddress: '1275 York Ave, New York, NY 10065'
+    },
+    {
+      id: 'maya-lin',
+      name: 'Maya Lin, MS, RDN, LDN',
+      headline: 'Bariatric Transition & Metabolic Reset Coach',
+      category: 'post-bariatric',
+      categoryName: 'Post-Bariatric Recovery',
+      image: 'images/image-13.png',
+      gallery: ['images/image-24.png', 'images/image-25.png', 'images/image-26.png'],
+      rating: 4.92,
+      reviewsCount: 88,
+      location: 'Atlanta, GA',
+      distance: '2.8 miles away',
+      price: 145,
+      priceLabel: 'From $145 / session',
+      isVerified: true,
+      isFeatured: false,
+      acceptsInsurance: true,
+      telehealth: true,
+      inPerson: true,
+      experience: '12 Years',
+      education: 'Emory University School of Medicine',
+      bio: 'Maya helps bariatric patients rebuild relationship with food, overcome post-op taste aversions, optimize nutrient absorption, and maintain long-term metabolic health.',
+      specialties: ['Gastric Bypass Vitamin Protocols', 'Post-Op Food Tolerance', 'Protein Pacing', 'Emotional Eating After Surgery'],
+      services: [
+        { name: 'Bariatric Milestone Assessment', price: '$180', desc: 'Laboratory panel audit and personalized food tolerance mapping.' }
+      ],
+      roadmap: [
+        { title: 'Phase 1: Hydration & Healing', desc: 'Protein supplementation without dumping syndrome triggers.' },
+        { title: 'Phase 2: Long-Term Nutritional Autonomy', desc: 'Sustained micronutrient balance and bone density preservation.' }
+      ],
+      badges: ['ASMBS Member', 'Emory Alum', 'Verified Credentials'],
+      phone: '+1 (404) 555-0341',
+      email: 'maya@atlantabariatriccare.com',
+      clinicAddress: '1364 Clifton Rd NE, Atlanta, GA 30322'
+    },
+    {
+      id: 'hannah-sterling',
+      name: 'Hannah Sterling, MS, RD, CEDRD',
+      headline: 'Trauma-Informed Eating Disorder Recovery Dietitian',
+      category: 'ed-recovery',
+      categoryName: 'Eating Disorder Nutrition',
+      image: 'images/image-10.png',
+      gallery: ['images/image-27.png', 'images/image-28.png', 'images/image-29.png'],
+      rating: 4.97,
+      reviewsCount: 114,
+      location: 'Dallas, TX',
+      distance: '3.1 miles away',
+      price: 170,
+      priceLabel: 'From $170 / session',
+      isVerified: true,
+      isFeatured: true,
+      acceptsInsurance: true,
+      telehealth: true,
+      inPerson: true,
+      experience: '15 Years',
+      education: 'UT Southwestern Medical Center',
+      bio: 'Hannah provides nervous-system centered medical nutrition therapy for ARFID, binge eating disorder, and chronic dieting recovery in an empowering, weight-inclusive space.',
+      specialties: ['ARFID Sensory Re-expansion', 'Binge Eating Nervous System Regulation', 'Body Trust Restoration', 'GI Satiety Recalibration'],
+      services: [
+        { name: 'Trauma-Informed Intake & Meal Rhythm Plan', price: '$225', desc: 'Safety-first nutritional baseline and nervous system grounding.' }
+      ],
+      roadmap: [
+        { title: 'Stage 1: Nourishment Predictability', desc: 'Establish regular fuel intervals to soothe biological starvation alerts.' },
+        { title: 'Stage 2: Variety & Intuitive Connection', desc: 'Safely re-introduce avoided foods with clinician accompaniment.' }
+      ],
+      badges: ['IAEDP Certified CEDRD', 'Weight Inclusive Provider', 'Verified Credentials'],
+      phone: '+1 (214) 555-0967',
+      email: 'hannah@sterlingnutrition.com',
+      clinicAddress: '5323 Harry Hines Blvd, Dallas, TX 75390'
     }
   ],
 

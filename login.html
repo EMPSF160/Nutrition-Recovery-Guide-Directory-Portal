@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Account Login & Registration — NOURISHMAP | Clinical Nutrition Portal</title>
-  <meta name="description" content="Sign in or create a NOURISHMAP account to access personalized clinical nutrition recovery plans, bookmarks, appointment bookings, and specialist portal.">
+  <title>Account Login & Authentication — NOURISHMAP</title>
+  <meta name="description" content="Sign in to NOURISHMAP to access your Patient Portal, Specialist Practice Portal, or Admin Moderation Center.">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -29,7 +29,7 @@
     }
     .auth-card {
       width: 100%;
-      max-width: 480px;
+      max-width: 500px;
       background: #ffffff;
       border: 1px solid var(--border-medium);
       border-radius: var(--radius-xl);
@@ -64,6 +64,33 @@
       color: var(--primary-dark);
       box-shadow: var(--shadow-sm);
     }
+    .role-select-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 20px;
+      background: var(--bg-subtle);
+      padding: 4px;
+      border-radius: var(--radius-md);
+    }
+    .role-btn {
+      padding: 8px 4px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-align: center;
+    }
+    .role-btn.active {
+      background: #ffffff;
+      color: var(--primary-dark);
+      border-color: var(--border-light);
+      box-shadow: var(--shadow-xs);
+    }
     .auth-view {
       display: none;
     }
@@ -71,19 +98,20 @@
       display: block;
     }
     .quick-role-badge {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 8px 12px;
+      justify-content: space-between;
+      padding: 12px 14px;
       border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 600;
       background: var(--bg-main);
       cursor: pointer;
       transition: all var(--transition-fast);
       color: var(--text-primary);
       text-decoration: none;
+      text-align: left;
     }
     .quick-role-badge:hover {
       border-color: var(--primary);
@@ -92,11 +120,25 @@
     }
   </style>
 </head>
-<body data-page="auth">
+<body data-page="auth" class="has-topbar">
+
+  <!-- Top Announcement Bar -->
+  <div class="topbar">
+    <div class="container topbar-content">
+      <div>
+        <span class="topbar-badge">SECURE AUTHENTICATION</span>
+        <span>HIPAA Encrypted Single Sign-On Access</span>
+      </div>
+      <div class="topbar-links">
+        <a href="index.html" class="topbar-link">Home</a>
+        <a href="directory.html" class="topbar-link">Clinical Directory</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Header -->
   <header class="site-header">
-    <div class="container header-container">
+    <div class="container header-inner">
       <a href="index.html" class="brand-logo" title="NOURISHMAP Home">
         <div class="brand-icon">🌿</div>
         <div>
@@ -107,13 +149,13 @@
 
       <nav class="nav-desktop">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="directory.html" class="nav-link">Explore Specialists</a>
+        <a href="directory.html" class="nav-link">Explore Directory</a>
         <a href="guides.html" class="nav-link">Recovery Guides</a>
         <a href="submit.html" class="nav-link">List Your Practice</a>
       </nav>
 
       <div class="header-actions">
-        <a href="directory.html" class="btn btn-outline btn-sm">Find a Dietitian</a>
+        <a href="directory.html" class="btn btn-outline btn-sm">Find a Specialist</a>
         <button class="mobile-toggle" aria-label="Toggle Navigation">☰</button>
       </div>
     </div>
@@ -124,8 +166,8 @@
     <div class="auth-card">
       
       <!-- Clickable Centered Logo -->
-      <div class="auth-card-logo">
-        <a href="index.html" class="brand-logo" title="Return to NOURISHMAP Home">
+      <div class="auth-card-logo" style="text-align:center; margin-bottom:20px;">
+        <a href="index.html" class="brand-logo" style="display:inline-flex; text-decoration:none;" title="Return to NOURISHMAP Home">
           <div class="brand-icon">🌿</div>
           <div>
             <span class="brand-name">NOURISH<span>MAP</span></span>
@@ -142,13 +184,20 @@
 
       <!-- VIEW 1: SIGN IN -->
       <div class="auth-view active" id="loginView">
-        <h2 style="font-size: 1.4rem; color: var(--primary-dark); text-align: center; margin-bottom: 6px;">Welcome Back</h2>
-        <p style="font-size: 0.88rem; color: var(--text-secondary); text-align: center; margin-bottom: 20px;">Access your saved specialists, consultations, and recovery trackers.</p>
+        <h2 style="font-size: 1.4rem; color: var(--primary-dark); text-align: center; margin-bottom: 4px;" id="loginHeading">Sign In to Your Account</h2>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-bottom: 16px;">Select your portal role to continue</p>
+
+        <!-- Role Selector -->
+        <div class="role-select-bar">
+          <button type="button" class="role-btn active" id="roleBtnPatient" onclick="selectLoginRole('patient')">👤 Patient</button>
+          <button type="button" class="role-btn" id="roleBtnOwner" onclick="selectLoginRole('owner')">🩺 Specialist</button>
+          <button type="button" class="role-btn" id="roleBtnAdmin" onclick="selectLoginRole('admin')">⚙️ Admin</button>
+        </div>
 
         <form id="signInForm" onsubmit="event.preventDefault(); handleAuthSubmit('login');">
           <div class="form-group">
-            <label class="form-label" for="loginEmail">Email Address</label>
-            <input type="email" id="loginEmail" class="form-control" placeholder="name@example.com" value="sarah.m@example.com" required>
+            <label class="form-label" for="loginEmail">Account Email</label>
+            <input type="email" id="loginEmail" class="form-control" placeholder="name@example.com" value="rachel.vance@example.com" required>
           </div>
 
           <div class="form-group">
@@ -156,30 +205,48 @@
               <label class="form-label" for="loginPassword" style="margin-bottom: 0;">Password</label>
               <a href="javascript:void(0)" onclick="switchAuthTab('forgot')" style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">Forgot Password?</a>
             </div>
-            <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" value="password123" required>
+            <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" value="••••••••" required>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px; padding: 12px;">Sign In to Account</button>
+          <button type="submit" class="btn btn-primary" id="loginSubmitBtn" style="width: 100%; justify-content: center; margin-top: 10px; padding: 12px; font-weight:700;">Sign In to Patient Portal</button>
         </form>
 
-        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-light); text-align: center;">
-          <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">Instant Portal Demos</div>
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-light);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; text-align: center;">⚡ 1-Click Instant Demo Portals</div>
           <div style="display: flex; flex-direction: column; gap: 8px;">
-            <a href="user-dashboard.html" class="quick-role-badge" style="justify-content: center;">👤 Launch Patient Portal Demo</a>
-            <a href="owner-dashboard.html" class="quick-role-badge" style="justify-content: center;">🩺 Launch Specialist Portal Demo</a>
-            <a href="admin-dashboard.html" class="quick-role-badge" style="justify-content: center;">⚙️ Launch Admin Portal Demo</a>
+            <a href="user-dashboard.html" class="quick-role-badge">
+              <div>
+                <strong>Rachel Vance</strong>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Patient Portal • Bookmarks & Telehealth</div>
+              </div>
+              <span class="btn btn-sm btn-subtle" style="font-size:0.75rem; padding:4px 8px;">Enter →</span>
+            </a>
+            <a href="owner-dashboard.html" class="quick-role-badge">
+              <div>
+                <strong>Dr. Elena Vance, MS, RD</strong>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Specialist Practice Portal • 3 Patient Leads</div>
+              </div>
+              <span class="btn btn-sm btn-subtle" style="font-size:0.75rem; padding:4px 8px;">Enter →</span>
+            </a>
+            <a href="admin-dashboard.html" class="quick-role-badge">
+              <div>
+                <strong>Clinical Audit Lead</strong>
+                <div style="font-size:0.75rem; color:var(--text-muted);">Admin Moderation Center • Superadmin</div>
+              </div>
+              <span class="btn btn-sm btn-subtle" style="font-size:0.75rem; padding:4px 8px;">Enter →</span>
+            </a>
           </div>
         </div>
       </div>
 
       <!-- VIEW 2: REGISTER / CREATE ACCOUNT -->
       <div class="auth-view" id="registerView">
-        <h2 style="font-size: 1.4rem; color: var(--primary-dark); text-align: center; margin-bottom: 6px;">Create Your Account</h2>
-        <p style="font-size: 0.88rem; color: var(--text-secondary); text-align: center; margin-bottom: 20px;">Join thousands receiving personalized nutrition recovery care.</p>
+        <h2 style="font-size: 1.4rem; color: var(--primary-dark); text-align: center; margin-bottom: 4px;">Create an Account</h2>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-bottom: 18px;">Join NOURISHMAP to track recovery milestones and consult specialists.</p>
 
         <form id="signUpForm" onsubmit="event.preventDefault(); handleAuthSubmit('register');">
           <div class="form-group">
-            <label class="form-label" for="regName">Full Name</label>
+            <label class="form-label" for="regName">Full Legal Name</label>
             <input type="text" id="regName" class="form-control" placeholder="e.g. Alex Morgan" required>
           </div>
 
@@ -189,11 +256,10 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="regRole">Account Purpose</label>
-            <select id="regRole" class="form-control" required>
-              <option value="patient">Patient / Individual Seeking Recovery Care</option>
-              <option value="practitioner">Dietitian / Clinical Nutrition Specialist</option>
-              <option value="clinic">Clinic / Medical Recovery Center</option>
+            <label class="form-label" for="regRole">Account Type</label>
+            <select id="regRole" class="form-control" required onchange="handleRegisterRoleChange(this.value)">
+              <option value="patient">Patient / Individual Seeking Care</option>
+              <option value="practitioner">Verified Specialist (Dietitian / Physician)</option>
             </select>
           </div>
 
@@ -203,14 +269,14 @@
           </div>
 
           <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.4;">
-            By signing up, you agree to our <a href="javascript:void(0)" style="color: var(--primary);">Terms of Clinical Service</a> and <a href="javascript:void(0)" style="color: var(--primary);">HIPAA Privacy Policy</a>.
+            By creating an account, you consent to NOURISHMAP <a href="javascript:void(0)" style="color: var(--primary);">Terms of Care</a> and <a href="javascript:void(0)" style="color: var(--primary);">HIPAA Security Policies</a>.
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 12px;">Create Free Account</button>
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 12px; font-weight:700;">Create Account</button>
         </form>
 
         <div style="margin-top: 18px; text-align: center; font-size: 0.85rem; color: var(--text-secondary);">
-          Are you a provider? <a href="submit.html" style="color: var(--primary); font-weight: 600;">Apply for Verified Specialist Listing →</a>
+          Are you a clinical provider? <a href="submit.html" style="color: var(--primary); font-weight: 600;">Apply for Directory Verification →</a>
         </div>
       </div>
 
@@ -225,7 +291,7 @@
             <input type="email" id="forgotEmail" class="form-control" placeholder="name@example.com" required>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-bottom: 14px;">Send Reset Link</button>
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-bottom: 14px; font-weight:700;">Send Password Reset Link</button>
           
           <button type="button" class="btn btn-outline" style="width: 100%; justify-content: center;" onclick="switchAuthTab('login')">← Back to Sign In</button>
         </form>
@@ -235,79 +301,9 @@
   </div>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand-logo">
-            <div class="brand-icon">🌿</div>
-            <div>
-              <span class="brand-name">NOURISH<span style="color:var(--secondary)">MAP</span></span>
-              <span class="brand-tagline" style="color:rgba(255,255,255,0.6);">Find. Understand. Recover.</span>
-            </div>
-          </a>
-          <p>
-            NOURISHMAP is the definitive medical nutrition recovery portal and verified practitioner directory, bridging clinical science and compassionate patient discovery.
-          </p>
-          <div class="footer-social-links">
-            <a href="https://instagram.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-            <a href="https://facebook.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-            </a>
-            <a href="https://linkedin.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-            </a>
-            <a href="https://x.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="X / Twitter" aria-label="X">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-            </a>
-            <a href="https://youtube.com" class="footer-social-icon" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="YouTube">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
-            </a>
-          </div>
-          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5);">
-            © 2026 NOURISHMAP Inc. All rights reserved.
-          </div>
-        </div>
-
-        <div>
-          <h4 class="footer-heading">Directory</h4>
-          <ul class="footer-links">
-            <li class="footer-link"><a href="directory.html?category=gut-health">Gut Health & SIBO</a></li>
-            <li class="footer-link"><a href="directory.html?category=sports-injury">Athletic Injury Rehab</a></li>
-            <li class="footer-link"><a href="directory.html?category=ed-recovery">Eating Disorder Nutrition</a></li>
-            <li class="footer-link"><a href="directory.html?category=autoimmune-chronic">Autoimmune & AIP</a></li>
-            <li class="footer-link"><a href="directory.html?category=post-bariatric">Post-Bariatric Dietitians</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-heading">Resources</h4>
-          <ul class="footer-links">
-            <li class="footer-link"><a href="guides.html">Clinical Recovery Hub</a></li>
-            <li class="footer-link"><a href="guides.html">Nutrient Deficiency Check</a></li>
-            <li class="footer-link"><a href="submit.html">Verification Standards</a></li>
-            <li class="footer-link"><a href="guides.html">Symptom Recovery Index</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-heading">Portals</h4>
-          <ul class="footer-links">
-            <li class="footer-link"><a href="user-dashboard.html">Patient Dashboard</a></li>
-            <li class="footer-link"><a href="owner-dashboard.html">Specialist Portal</a></li>
-            <li class="footer-link"><a href="admin-dashboard.html">Admin Moderation</a></li>
-            <li class="footer-link"><a href="submit.html">Claim Listing</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div style="font-size:0.8rem; color:rgba(255,255,255,0.4); text-align:center;">
-          Disclaimer: NOURISHMAP is an educational recovery portal and clinical directory. Content provided is not a substitute for direct medical diagnosis or emergency healthcare.
-        </div>
-      </div>
+  <footer class="site-footer" style="padding:30px 0;">
+    <div class="container text-center" style="font-size:0.85rem; color:rgba(255,255,255,0.7); display:flex; flex-direction:column; align-items:center; gap:8px;">
+      <div>NOURISHMAP Authentication Portal • Protected by End-to-End HIPAA Encryption • © 2026 NOURISHMAP Inc.</div>
     </div>
   </footer>
 
@@ -315,6 +311,34 @@
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
   <script>
+    let currentRole = 'patient';
+
+    function selectLoginRole(role) {
+      currentRole = role;
+      document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+      
+      const emailInput = document.getElementById('loginEmail');
+      const submitBtn = document.getElementById('loginSubmitBtn');
+      const heading = document.getElementById('loginHeading');
+
+      if (role === 'patient') {
+        document.getElementById('roleBtnPatient').classList.add('active');
+        if (emailInput) emailInput.value = 'rachel.vance@example.com';
+        if (submitBtn) submitBtn.textContent = 'Sign In to Patient Portal';
+        if (heading) heading.textContent = 'Patient Portal Sign In';
+      } else if (role === 'owner') {
+        document.getElementById('roleBtnOwner').classList.add('active');
+        if (emailInput) emailInput.value = 'dr.vance@nourishmap.clinic';
+        if (submitBtn) submitBtn.textContent = 'Sign In to Specialist Portal';
+        if (heading) heading.textContent = 'Specialist Practice Sign In';
+      } else if (role === 'admin') {
+        document.getElementById('roleBtnAdmin').classList.add('active');
+        if (emailInput) emailInput.value = 'audit.lead@nourishmap.org';
+        if (submitBtn) submitBtn.textContent = 'Sign In to Admin Governance';
+        if (heading) heading.textContent = 'Admin Governance Sign In';
+      }
+    }
+
     function switchAuthTab(tab) {
       const tabs = document.querySelectorAll('.auth-tab-btn');
       const views = document.querySelectorAll('.auth-view');
@@ -333,31 +357,47 @@
       }
     }
 
-    function handleAuthSubmit(action) {
-      if (action === 'login') {
-        showToast('Successfully signed in! Redirecting to Patient Portal...');
-        setTimeout(() => {
-          window.location.href = 'user-dashboard.html';
-        }, 1000);
-      } else if (action === 'register') {
-        showToast('Account created successfully! Welcome to NOURISHMAP.');
-        setTimeout(() => {
-          window.location.href = 'user-dashboard.html';
-        }, 1200);
-      } else if (action === 'forgot') {
-        showToast('Password reset link sent to your email inbox.');
-        setTimeout(() => {
-          switchAuthTab('login');
-        }, 1500);
+    function handleRegisterRoleChange(val) {
+      if (val === 'practitioner') {
+        showToast('Tip: You can also use our multi-step Provider Onboarding wizard on the Submit page.', 'info');
       }
     }
 
-    // Check URL params for initial tab
+    function handleAuthSubmit(action) {
+      if (action === 'login') {
+        if (currentRole === 'patient') {
+          showToast('Welcome back, Rachel! Redirecting to Patient Portal...');
+          setTimeout(() => { window.location.href = 'user-dashboard.html'; }, 800);
+        } else if (currentRole === 'owner') {
+          showToast('Welcome Dr. Elena Vance! Redirecting to Specialist Portal...');
+          setTimeout(() => { window.location.href = 'owner-dashboard.html'; }, 800);
+        } else if (currentRole === 'admin') {
+          showToast('Superadmin credentials authenticated! Redirecting to Governance Center...');
+          setTimeout(() => { window.location.href = 'admin-dashboard.html'; }, 800);
+        }
+      } else if (action === 'register') {
+        const role = document.getElementById('regRole')?.value;
+        if (role === 'practitioner') {
+          showToast('Account registered! Redirecting to Practice Verification...');
+          setTimeout(() => { window.location.href = 'owner-dashboard.html'; }, 900);
+        } else {
+          showToast('Account created successfully! Welcome to NOURISHMAP.');
+          setTimeout(() => { window.location.href = 'user-dashboard.html'; }, 900);
+        }
+      } else if (action === 'forgot') {
+        showToast('Password reset link sent to your registered email inbox.');
+        setTimeout(() => { switchAuthTab('login'); }, 1500);
+      }
+    }
+
+    // Check URL params for role or mode
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('mode') === 'register') {
       switchAuthTab('register');
     } else if (urlParams.get('mode') === 'forgot') {
       switchAuthTab('forgot');
+    } else if (urlParams.get('role')) {
+      selectLoginRole(urlParams.get('role'));
     }
   </script>
 </body>
